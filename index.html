@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ສຸກສັນວັນເກີດ My Yer 🌹</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --rose: #d4607a;
+    --rose-dark: #7a2540;
+    --rose-deep: #3d0f20;
+    --gold: #c4876a;
+    --gold-light: #f0d8c8;
+    --bg: #1a0a0f;
+    --bg2: #12060c;
+    --bg3: #2a0e18;
+    --muted: #9b7a88;
+    --muted2: #6a4a55;
+    --border: #4a1f2e;
+    --text: #f5e6d3;
+    --text2: #c9b8a8;
+    --text3: #b5a09a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ── PETALS ── */
+  .petal {
+    position: fixed;
+    width: 9px; height: 13px;
+    border-radius: 60% 0 60% 0;
+    opacity: 0;
+    animation: fall linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes fall {
+    0%   { transform: translateY(-20px) rotate(0deg);   opacity: 0.6; }
+    100% { transform: translateY(110vh) rotate(400deg); opacity: 0; }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 1.5rem 5rem;
+    z-index: 1;
+    background: radial-gradient(ellipse at 50% 30%, #3d0f20 0%, #1a0a0f 70%);
+  }
+
+  .eye-label {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.3s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(44px, 10vw, 88px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--text);
+    opacity: 0;
+    animation: fadeUp 1s ease 0.6s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: #e8a0b0;
+  }
+
+  .divider {
+    width: 60px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 2rem auto;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.9s forwards;
+  }
+
+  .hero-text {
+    font-size: clamp(14px, 3vw, 16px);
+    line-height: 2;
+    color: var(--text2);
+    max-width: 500px;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.1s forwards;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted2);
+    opacity: 0;
+    animation: fadeUp 1s ease 2s forwards, pulse 2.5s ease 3s infinite;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50%       { opacity: 1; }
+  }
+
+  /* ── LETTER ── */
+  .letter-section {
+    position: relative; z-index: 1;
+    padding: 5rem 1.5rem;
+    display: flex; justify-content: center;
+    background: var(--bg2);
+  }
+
+  .letter-card {
+    background: var(--bg3);
+    border: 0.5px solid var(--border);
+    border-radius: 20px;
+    max-width: 580px; width: 100%;
+    padding: clamp(1.5rem, 5vw, 3rem);
+    position: relative; overflow: hidden;
+  }
+
+  .letter-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 180px;
+    color: #3d1020;
+    position: absolute;
+    top: -40px; left: 10px;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .letter-tag {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+  }
+
+  .letter-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 4vw, 26px);
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 1.2rem;
+  }
+
+  .letter-body {
+    font-size: clamp(14px, 3vw, 15px);
+    line-height: 2;
+    color: var(--text3);
+    position: relative; z-index: 1;
+  }
+
+  .letter-sig {
+    margin-top: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: #e8a0b0;
+  }
+
+  /* ── GIFTS ── */
+  .gifts-section {
+    position: relative; z-index: 1;
+    padding: 4rem 1.5rem 5rem;
+    background: var(--bg);
+    text-align: center;
+  }
+
+  .sec-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 34px);
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .sec-sub {
+    font-size: 13px;
+    color: var(--muted2);
+    margin-bottom: 3rem;
+  }
+
+  .gifts-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .gift-box {
+    width: clamp(130px, 28vw, 160px);
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s;
+  }
+  .gift-box:hover { transform: translateY(-4px); }
+  .gift-box.floating { animation: floatBox 4s ease-in-out infinite; }
+  .gift-box.floating:nth-child(2) { animation-delay: 0.7s; }
+  .gift-box.floating:nth-child(3) { animation-delay: 1.4s; }
+
+  @keyframes floatBox {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-10px); }
+  }
+
+  /* ══════════════════════════════════════
+     GIFT BOX CARDS — present box style
+  ══════════════════════════════════════ */
+  .gift-box {
+    width: clamp(140px, 30vw, 175px);
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.25s;
+  }
+  .gift-box.floating { animation: floatBox 4s ease-in-out infinite; }
+  .gift-box.floating:nth-child(2) { animation-delay: 0.7s; }
+  .gift-box.floating:nth-child(3) { animation-delay: 1.4s; }
+
+  /* wrapper card — no bg, just layout */
+  .gift-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+    min-height: 200px;
+    overflow: hidden;
+    border-radius: 4px 4px 12px 12px;
+  }
+
+  /* ── BOX LID ── */
+  .box-lid {
+    width: 108%;
+    height: 44px;
+    border-radius: 10px 10px 4px 4px;
+    position: relative;
+    z-index: 3;
+    transition: transform 0.5s cubic-bezier(0.34,1.4,0.64,1);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* lid ribbon stripe */
+  .box-lid::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%; transform: translateX(-50%);
+    width: 22px;
+    opacity: 0.55;
+  }
+
+  /* bow on top of lid */
+  .box-bow {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 52px; height: 24px;
+    display: flex; align-items: flex-end; justify-content: center;
+    z-index: 4;
+  }
+  /* left loop */
+  .box-bow::before,
+  .box-bow::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 22px; height: 18px;
+    border-radius: 50% 50% 0 50%;
+    opacity: 0.9;
+  }
+  .box-bow::before { left: 2px;  transform: rotate(-25deg); }
+  .box-bow::after  { right: 2px; transform: rotate(25deg) scaleX(-1); }
+
+  /* bow knot */
+  .bow-knot {
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    z-index: 5;
+  }
+
+  /* ── BOX BODY ── */
+  .box-body {
+    width: 100%;
+    flex: 1;
+    border-radius: 4px 4px 12px 12px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0.8rem 0.9rem;
+    min-height: 130px;
+    z-index: 2;
+  }
+
+  /* body ribbon stripe vertical */
+  .box-body::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%; transform: translateX(-50%);
+    width: 22px;
+    opacity: 0.18;
+  }
+
+  /* body ribbon stripe horizontal */
+  .box-body::after {
+    content: '';
+    position: absolute;
+    top: 38%;
+    left: 0; right: 0;
+    height: 22px;
+    opacity: 0.18;
+  }
+
+  /* shine sweep on body */
+  .gc-shine {
+    position: absolute;
+    top: -50%; left: -60%;
+    width: 50%; height: 200%;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.07) 50%, transparent 60%);
+    transform: skewX(-15deg);
+    animation: shineSweep 5s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+  @keyframes shineSweep {
+    0%, 100% { left: -60%; opacity: 0; }
+    40% { opacity: 1; }
+    65% { left: 120%; opacity: 0; }
+  }
+
+  /* ── PER-BOX COLOR THEMES ── */
+
+  /* Gift 1 — deep rose/red */
+  .gc1 .box-lid  { background: #8b1a35; box-shadow: 0 3px 12px rgba(139,26,53,0.5); }
+  .gc1 .box-lid::before { background: #d4607a; }
+  .gc1 .box-bow::before,
+  .gc1 .box-bow::after  { background: #d4607a; }
+  .gc1 .bow-knot { background: #f0a0b8; }
+  .gc1 .box-body { background: linear-gradient(160deg, #a01f3f 0%, #6a1028 100%); border: 1px solid #c03050; }
+  .gc1 .box-body::before { background: #d4607a; }
+  .gc1 .box-body::after  { background: #d4607a; }
+
+  /* Gift 2 — midnight blue */
+  .gc2 .box-lid  { background: #0e2a5c; box-shadow: 0 3px 12px rgba(14,42,92,0.5); }
+  .gc2 .box-lid::before { background: #5a9ae0; }
+  .gc2 .box-bow::before,
+  .gc2 .box-bow::after  { background: #5a9ae0; }
+  .gc2 .bow-knot { background: #a0c8f5; }
+  .gc2 .box-body { background: linear-gradient(160deg, #102e68 0%, #081830 100%); border: 1px solid #1e4a9a; }
+  .gc2 .box-body::before { background: #5a9ae0; }
+  .gc2 .box-body::after  { background: #5a9ae0; }
+
+  /* Gift 3 — warm amber/gold */
+  .gc3 .box-lid  { background: #6a3008; box-shadow: 0 3px 12px rgba(106,48,8,0.5); }
+  .gc3 .box-lid::before { background: #e0961e; }
+  .gc3 .box-bow::before,
+  .gc3 .box-bow::after  { background: #e0961e; }
+  .gc3 .bow-knot { background: #f5c870; }
+  .gc3 .box-body { background: linear-gradient(160deg, #7a3a0a 0%, #3e1a04 100%); border: 1px solid #a05a20; }
+  .gc3 .box-body::before { background: #e0961e; }
+  .gc3 .box-body::after  { background: #e0961e; }
+
+  /* ── CLOSED STATE — content hidden, lid stays down ── */
+  .box-content {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column;
+    align-items: center; text-align: center;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+    transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
+  }
+
+  /* Closed hint shown before opening */
+  .box-closed-hint {
+    position: absolute; z-index: 2;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    width: 100%; height: 100%;
+    transition: opacity 0.3s ease;
+  }
+  .box-closed-hint .hint-icon { font-size: 28px; margin-bottom: 0.4rem; opacity: 0.5; }
+  .box-closed-hint .hint-text {
+    font-size: 9px; letter-spacing: 2px;
+    animation: tapPulse 2s ease-in-out infinite;
+  }
+  .gc1 .hint-text { color: rgba(240,160,180,0.7); }
+  .gc2 .hint-text { color: rgba(140,190,240,0.7); }
+  .gc3 .hint-text { color: rgba(240,200,120,0.7); }
+
+  /* ── OPENED STATE — lid lifts, content appears, hint hides ── */
+  .gift-box.unlocked .box-lid { transform: translateY(-18px) rotate(-8deg); }
+  .gift-box.unlocked .box-content { opacity: 1; transform: translateY(0) scale(1); }
+  .gift-box.unlocked .box-closed-hint { opacity: 0; pointer-events: none; }
+
+  /* hover on closed box — lid tilts slightly as teaser */
+  .gift-box:not(.unlocked):not(.post-lock):hover .box-lid { transform: translateY(-6px) rotate(-3deg); }
+  .gift-box:not(.unlocked):not(.post-lock):hover .gift-card { transform: translateY(-6px) scale(1.03); }
+
+  .gc-top-tag {
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+  }
+  .gc1 .gc-top-tag { color: rgba(240,200,200,0.5); }
+  .gc2 .gc-top-tag { color: rgba(160,200,245,0.5); }
+  .gc3 .gc-top-tag { color: rgba(245,200,120,0.5); }
+
+  .box-icon {
+    font-size: 32px;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+    line-height: 1;
+  }
+
+  .gc-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+  .gc1 .gc-label { color: #f5d0d8; }
+  .gc2 .gc-label { color: #c8dff8; }
+  .gc3 .gc-label { color: #f8dfc0; }
+
+  .gc-sublabel {
+    font-size: 10px;
+    letter-spacing: 1.2px;
+  }
+  .gc1 .gc-sublabel { color: rgba(240,180,190,0.55); }
+  .gc2 .gc-sublabel { color: rgba(160,200,245,0.55); }
+  .gc3 .gc-sublabel { color: rgba(245,210,150,0.55); }
+
+  .gc-tap {
+    font-size: 9px;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+    animation: tapPulse 2s ease-in-out infinite;
+  }
+  .gc1 .gc-tap { color: rgba(212,96,122,0.7); }
+  .gc2 .gc-tap { color: rgba(90,154,224,0.7); }
+  .gc3 .gc-tap { color: rgba(224,150,30,0.7); }
+
+  @keyframes tapPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* mystery face — relative to box-body */
+  .mystery-face, .revealed-face {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; text-align: center;
+    padding: 0.8rem;
+    border-radius: 4px 4px 12px 12px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 3;
+  }
+  .box-body { position: relative; }
+  .revealed-face { opacity: 0; transform: scale(0.92); pointer-events: none; }
+  .gift-box.unlocked .mystery-face { opacity: 0; transform: scale(1.05); pointer-events: none; }
+  .gift-box.unlocked .revealed-face { opacity: 1; transform: scale(1); pointer-events: auto; }
+  .gift-box.unlocked .box-lid { transform: translateY(-16px) rotate(-6deg); }
+
+  .mystery-lock { font-size: 28px; margin-bottom: 0.4rem; }
+  .mystery-label { font-size: 9px; letter-spacing: 3px; margin-bottom: 0.25rem; }
+  .gc1 .mystery-label { color: rgba(240,200,200,0.6); }
+  .gc2 .mystery-label { color: rgba(160,200,245,0.6); }
+  .gc3 .mystery-label { color: rgba(245,210,150,0.6); }
+
+  .mystery-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px; font-style: italic; margin-bottom: 0.5rem;
+  }
+  .gc1 .mystery-sub { color: rgba(240,170,190,0.8); }
+  .gc2 .mystery-sub { color: rgba(140,190,240,0.8); }
+  .gc3 .mystery-sub { color: rgba(240,200,130,0.8); }
+
+  .mystery-hint { font-size: 9px; letter-spacing: 1px; animation: tapPulse 2s ease-in-out infinite; }
+  .gc1 .mystery-hint { color: rgba(212,96,122,0.6); }
+  .gc2 .mystery-hint { color: rgba(90,154,224,0.6); }
+  .gc3 .mystery-hint { color: rgba(224,150,30,0.6); }
+
+  /* ── POST-LOCK (locked after first click) ── */
+  .gift-box.post-lock {
+    pointer-events: none;
+  }
+  .gift-box.post-lock .gift-card::after {
+    content: '🔒';
+    position: absolute;
+    inset: 0;
+    background: rgba(10,3,7,0.78);
+    border-radius: 4px 4px 12px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    backdrop-filter: blur(3px);
+    z-index: 10;
+  }
+  /* re-enable after acceptKiss removes post-lock */
+  .gift-box:not(.post-lock) {
+    pointer-events: auto;
+  }
+
+  /* box label tag underneath */
+  .box-tag {
+    margin-top: 0.6rem;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+  .gift-box.unlocked .box-tag { color: #e8a0b0; }
+
+  /* ── POPUPS ── */
+  .popup-bg {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(10,3,7,0.88);
+    z-index: 200;
+    align-items: center; justify-content: center;
+    padding: 1.5rem;
+  }
+  .popup-bg.active { display: flex; }
+
+  .popup-card {
+    background: var(--bg3);
+    border: 0.5px solid #5a1f32;
+    border-radius: 22px;
+    padding: clamp(1.8rem, 5vw, 2.8rem) clamp(1.5rem, 4vw, 2.2rem);
+    max-width: 400px; width: 100%;
+    text-align: center;
+    animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes popIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+  }
+
+  .popup-icon { font-size: 54px; margin-bottom: 1rem; }
+
+  .popup-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 4vw, 22px);
+    color: var(--gold-light);
+    margin-bottom: 0.8rem;
+  }
+
+  .popup-desc {
+    font-size: clamp(13px, 3vw, 14px);
+    line-height: 1.85;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .popup-close {
+    background: none;
+    border: 0.5px solid var(--border);
+    color: var(--gold);
+    padding: 0.6rem 2rem;
+    border-radius: 10px;
+    font-size: 13px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: background 0.2s;
+  }
+  .popup-close:hover { background: var(--rose-deep); }
+
+  /* kiss challenge popup extras */
+  .kiss-btns {
+    display: flex; gap: 1rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .btn-yes {
+    background: var(--rose-dark);
+    border: none;
+    color: #fff;
+    padding: 0.65rem 2rem;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-yes:hover { background: var(--rose); transform: scale(1.04); }
+
+  .btn-no {
+    background: none;
+    border: 0.5px solid var(--border);
+    color: var(--muted);
+    padding: 0.65rem 1.5rem;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-no:hover { background: #2a0e18; }
+
+  /* ── FOOTER ── */
+  .footer {
+    position: relative; z-index: 1;
+    text-align: center;
+    padding: 3.5rem 1.5rem 5rem;
+    background: var(--bg2);
+  }
+
+  .footer-hearts {
+    font-size: 18px;
+    letter-spacing: 8px;
+    color: var(--rose-dark);
+    margin-bottom: 1rem;
+  }
+
+  .footer-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(15px, 3vw, 18px);
+    color: var(--muted2);
+    max-width: 380px;
+    margin: 0 auto;
+    line-height: 1.75;
+  }
+
+  .footer-name {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #3a1a25;
+    margin-top: 1.5rem;
+  }
+
+  /* ── SHARED POPUP BOTTOM BTN ── */
+  .popup-close-bottom {
+    margin-top: 1.2rem;
+    background: var(--rose-dark);
+    border: none;
+    color: #fff;
+    padding: 0.7rem 2.2rem;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, transform 0.15s;
+    display: block;
+    width: 100%;
+  }
+  .popup-close-bottom:hover { background: var(--rose); transform: scale(1.02); }
+
+  .x-close {
+    position: absolute; top: 0.8rem; right: 1rem;
+    background: none; border: none;
+    color: var(--muted); font-size: 18px; cursor: pointer;
+    z-index: 10; line-height: 1;
+  }
+  .x-close:hover { color: var(--text); }
+
+  /* ── COUPON ── */
+  .coupon-wrap {
+    position: relative;
+    max-width: 380px; width: 100%;
+    display: flex; flex-direction: column; align-items: center;
+    animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    padding: 0 1rem;
+  }
+
+  .coupon {
+    display: flex;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(212,96,122,0.25);
+  }
+
+  .coupon-stub {
+    background: var(--rose-dark);
+    width: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .stub-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+  }
+
+  .stub-dots {
+    position: absolute;
+    top: 0; bottom: 0; right: -1px;
+    width: 2px;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px, transparent 6px,
+      var(--bg) 6px, var(--bg) 12px
+    );
+  }
+
+  .coupon-body {
+    background: linear-gradient(135deg, #2a0e18 0%, #1a0612 100%);
+    flex: 1;
+    padding: 1.6rem 1.4rem;
+    border: 0.5px solid var(--border);
+    border-left: none;
+    border-radius: 0 16px 16px 0;
+    text-align: center;
+  }
+
+  .coupon-top-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+
+  .coupon-restaurant {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: var(--text3);
+    line-height: 1.4;
+    margin-bottom: 0.3rem;
+  }
+
+  .coupon-restaurant span {
+    font-size: 28px;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--gold-light);
+    display: block;
+  }
+
+  .coupon-divider {
+    display: flex; align-items: center; gap: 6px;
+    margin: 0.9rem 0;
+  }
+  .c-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rose-dark); flex-shrink: 0; }
+  .c-line { flex: 1; height: 0.5px; background: var(--border); }
+
+  .coupon-for { font-size: 11px; letter-spacing: 2px; color: var(--muted); margin-bottom: 0.3rem; }
+
+  .coupon-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: #e8a0b0;
+    margin-bottom: 0.4rem;
+  }
+
+  .coupon-detail {
+    font-size: 13px;
+    color: var(--text2);
+    margin-bottom: 0.3rem;
+  }
+
+  .coupon-note {
+    font-size: 11px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .coupon-barcode {
+    margin-top: 0.5rem;
+  }
+
+  .barcode-bars {
+    height: 32px;
+    background: repeating-linear-gradient(
+      to right,
+      var(--rose-dark) 0px, var(--rose-dark) 2px,
+      transparent 2px, transparent 4px,
+      #7a3050 4px, #7a3050 5px,
+      transparent 5px, transparent 7px
+    );
+    border-radius: 2px;
+    margin-bottom: 4px;
+    opacity: 0.7;
+  }
+
+  .coupon-code {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+  }
+
+  .coupon-hearts {
+    margin-top: 0.6rem;
+    font-size: 14px;
+    letter-spacing: 6px;
+    color: var(--rose-dark);
+  }
+
+  /* ── MONEY CARD ── */
+  .money-wrap {
+    position: relative;
+    max-width: 360px; width: 100%;
+    display: flex; flex-direction: column; align-items: center;
+    animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    padding: 0 1rem;
+  }
+
+  .money-card {
+    background: linear-gradient(145deg, #0f2240 0%, #0a1628 100%);
+    border: 0.5px solid #2a4a7a;
+    border-radius: 20px;
+    padding: 2rem 1.8rem;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(30,90,180,0.2);
+  }
+
+  .money-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: rgba(30,90,180,0.12);
+  }
+
+  .money-sparkles {
+    position: absolute; inset: 0;
+    pointer-events: none; overflow: hidden;
+  }
+
+  .sparkle {
+    position: absolute;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #7ab8f5;
+    animation: twinkle 2s ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1); }
+  }
+
+  .money-label {
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #5a8abf;
+    margin-bottom: 0.8rem;
+  }
+
+  .money-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 600;
+    color: #a8d4ff;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 0 30px rgba(100,180,255,0.3);
+  }
+
+  .money-sub {
+    font-size: 13px;
+    color: #3d6a9b;
+    margin-bottom: 1rem;
+  }
+
+  .money-divider-dashed {
+    border-top: 0.5px dashed #1e3d6a;
+    margin: 0.9rem 0;
+  }
+
+  .money-msg {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #8ab8e0;
+  }
+
+  .money-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+
+  .money-flag { font-size: 20px; }
+
+  .money-stamp {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #2a4a7a;
+    border: 0.5px solid #1e3d6a;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  /* ── VIDEO POPUP ── */
+  .video-wrap {
+    position: relative;
+    max-width: 500px; width: calc(100% - 2rem);
+    display: flex; flex-direction: column;
+    animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    background: #1a1a1a;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(0,0,0,0.6);
+  }
+
+  .video-title-bar {
+    background: #2a2a2a;
+    padding: 10px 14px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 0.5px solid #3a3a3a;
+  }
+
+  .video-dot {
+    width: 12px; height: 12px; border-radius: 50%; display: inline-block;
+  }
+  .video-dot.r { background: #ff5f57; }
+  .video-dot.y { background: #febc2e; }
+  .video-dot.g { background: #28c840; }
+
+  .video-title-text {
+    font-size: 13px; color: #aaa; margin-left: 6px;
+  }
+
+
+  /* ── VIDEO POPUP (compact) ── */
+  .video-wrap-sm {
+    position: relative;
+    max-width: 400px; width: calc(100% - 2rem);
+    background: #1a1a1a;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(0,0,0,0.6);
+    animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  }
+
+  .video-area {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9/16;
+    max-height: 65vh;
+    background: #000;
+    overflow: hidden;
+  }
+
+  .video-area iframe {
+    width: 100%; height: 100%;
+    border: none; display: block;
+  }
+
+  #videoContainer {
+    position: absolute; inset: 0;
+  }
+  #videoContainer iframe {
+    width: 100%; height: 100%;
+    border: none; display: block;
+  }
+
+  .video-loading {
+    position: absolute; inset: 0;
+    background: #111;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px; z-index: 10;
+    transition: opacity 0.4s ease;
+  }
+  .video-loading.hidden { opacity: 0; pointer-events: none; }
+
+  .vl-spinner {
+    width: 36px; height: 36px;
+    border: 3px solid rgba(212,96,122,0.2);
+    border-top-color: #d4607a;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .vl-text {
+    font-size: 12px; letter-spacing: 2px; color: var(--muted);
+  }
+
+  .video-caption-sm {
+    background: #222;
+    padding: 0.8rem;
+    text-align: center;
+    font-size: 13px;
+    color: #c9b8a8;
+  }
+
+  .video-caption {
+    background: #222;
+    padding: 1rem;
+    text-align: center;
+    font-size: 14px;
+    color: #c9b8a8;
+    line-height: 1.8;
+  }
+
+
+  /* ── MYSTERY / REVEALED FACES ── */
+  .mystery-face, .revealed-face {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; text-align: center;
+    padding: 1rem;
+    border-radius: 20px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .revealed-face {
+    opacity: 0;
+    transform: scale(0.92);
+    pointer-events: none;
+  }
+  .gift-box.unlocked .mystery-face {
+    opacity: 0;
+    transform: scale(1.05);
+    pointer-events: none;
+  }
+  .gift-box.unlocked .revealed-face {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+  .mystery-lock {
+    font-size: 32px;
+    margin-bottom: 0.5rem;
+  }
+  .mystery-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 0.3rem;
+  }
+  .gc1 .mystery-label { color: #c4876a; }
+  .gc3 .mystery-label { color: #c49a6a; }
+  .gc2 .mystery-label { color: #5a90d0; }
+  .mystery-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 0.6rem;
+  }
+  .gc1 .mystery-sub { color: #9b6a78; }
+  .gc3 .mystery-sub { color: #9b7a5a; }
+  .gc2 .mystery-sub { color: #3d6a9b; }
+  .mystery-hint {
+    font-size: 10px;
+    letter-spacing: 1px;
+    animation: tapPulse 2s ease-in-out infinite;
+  }
+  .gc1 .mystery-hint { color: #7a3050; }
+  .gc3 .mystery-hint { color: #7a5030; }
+  .gc2 .mystery-hint { color: #1e3d6a; }
+
+  .kiss-reminder-btn {
+    margin-top: 2rem;
+    background: none;
+    border: 0.5px solid var(--rose-dark);
+    color: #e8a0b0;
+    padding: 0.6rem 1.6rem;
+    border-radius: 30px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .kiss-reminder-btn:hover {
+    background: var(--rose-deep);
+    transform: scale(1.04);
+  }
+
+  /* ── CONFETTI ── */
+  .confetti-piece {
+    position: fixed;
+    width: 8px; height: 8px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 300;
+    animation: cFall 1.3s ease-out forwards;
+  }
+  @keyframes cFall {
+    0%   { opacity: 1; transform: translateY(0) rotate(0deg) scale(1); }
+    100% { opacity: 0; transform: translateY(200px) rotate(560deg) scale(0.4); }
+  }
+
+  /* ── RESPONSIVE TWEAKS ── */
+  @media (max-width: 480px) {
+    .gifts-grid { gap: 1rem; }
+    .gift-box { width: clamp(110px, 40vw, 140px); }
+    .letter-card::before { font-size: 100px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="petals"></div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <p class="eye-label">ສຳລັບຄົນທີ່ຮັກທີ່ສຸດ</p>
+  <h1>ສຸກສັນວັນເກີດ,<br><em>My Yer</em> 🌹</h1>
+  <div class="divider"></div>
+  <p class="hero-text">
+    ຂອບໃຈທີ່ມີເທີຢູ່ໃນໂລກນີ້ ເຮັດໃຫ້ຂ້ອຍຮູ້ວ່າຂ້ອຍເປັນຄົນທີ່ໂຊກດີປານໃດ
+  </p>
+  <span class="scroll-hint">ເລື່ອນລົງ ↓</span>
+</section>
+
+<!-- ═══ LETTER ═══ -->
+<section class="letter-section">
+  <div class="letter-card">
+    <p class="letter-tag">ຈົດໝາຍຮັກ</p>
+    <h2>My Yer ທີ່ຮັກ,</h2>
+    <p class="letter-body">
+      ບໍ່ຮູ້ຈະເລີ່ມຈາກໃສດີ... ແຕ່ຂ້ອຍຢາກໃຫ້ເທີຮູ້ວ່າ
+      ທຸກຄັ້ງທີ່ຂ້ອຍຄິດເຖິງເທີ ຫົວໃຈຂ້ອຍຮູ້ສຶກອົບອຸ່ນສະເໝີ.
+      <br><br>
+      ວັນເກີດຂອງເທີ ຂ້ອຍອາດຈະບໍໄດ້ຊື້ຂອງຂວັນດີໆ —
+      ຢາກໃຫ້ເທີຮູ້ພຽງວ່າ ຂ້ອຍຄິດເຖິງເທີ ແລະ ດີໃຈທີ່ໄດ້ຮູ້ຈັກເທີ.
+      <br><br>
+      ຮັກເທີຫຼາຍໆ, ສຸຂສັນວັນເກີດນະ. ✨
+    </p>
+    <p class="letter-sig">ຮັກເທີສະເໝີ 💕</p>
+  </div>
+</section>
+
+<!-- ═══ GIFTS ═══ -->
+<section class="gifts-section">
+  <p class="sec-label">ຂອງຂວັນລໍຖ້າເທີຢູ່</p>
+  <h2 class="sec-title">ຂອງຂວັນຂອງເທີ</h2>
+  <p class="sec-sub">ແຕະກ່ອງຂອງຂວັນ ເພື່ອເປີດ</p>
+
+  <div class="gifts-grid">
+
+    <!-- Gift 1 -->
+    <div class="gift-box g1 floating" id="gift1" onclick="onGiftClick(0)">
+      <div class="gift-card gc1">
+        <div class="box-lid">
+          <div class="box-bow"><span class="bow-knot"></span></div>
+        </div>
+        <div class="box-body">
+          <div class="gc-shine"></div>
+          <div class="box-closed-hint">
+            <div class="hint-icon">🎁</div>
+            <div class="hint-text">ແຕະເພື່ອເປີດ ✦</div>
+          </div>
+          <div class="box-content">
+            <div class="gc-top-tag">GIFT #1</div>
+            <div class="box-icon">🍽️</div>
+            <div class="gc-label">ດິນເນີ Romantic</div>
+            <div class="gc-sublabel">YOREE ຊິ້ນດາດ</div>
+          </div>
+        </div>
+      </div>
+      <div class="box-tag">ຂອງຂວັນ #1</div>
+    </div>
+
+    <!-- Gift 2 -->
+    <div class="gift-box g2 floating" id="gift2" onclick="onGiftClick(1)">
+      <div class="gift-card gc2">
+        <div class="box-lid">
+          <div class="box-bow"><span class="bow-knot"></span></div>
+        </div>
+        <div class="box-body">
+          <div class="gc-shine"></div>
+          <div class="box-closed-hint">
+            <div class="hint-icon">🎁</div>
+            <div class="hint-text">ແຕະເພື່ອເປີດ ✦</div>
+          </div>
+          <div class="box-content">
+            <div class="gc-top-tag">GIFT #2</div>
+            <div class="box-icon">🍱</div>
+            <div class="gc-label">ລ້ຽງເຂົ້າ</div>
+            <div class="gc-sublabel">$50 · Japan</div>
+          </div>
+        </div>
+      </div>
+      <div class="box-tag">ຂອງຂວັນ #2</div>
+    </div>
+
+    <!-- Gift 3 -->
+    <div class="gift-box g3 floating" id="gift3" onclick="onGiftClick(2)">
+      <div class="gift-card gc3">
+        <div class="box-lid">
+          <div class="box-bow"><span class="bow-knot"></span></div>
+        </div>
+        <div class="box-body">
+          <div class="gc-shine"></div>
+          <div class="box-closed-hint">
+            <div class="hint-icon">🎁</div>
+            <div class="hint-text">ແຕະເພື່ອເປີດ ✦</div>
+          </div>
+          <div class="box-content">
+            <div class="gc-top-tag">GIFT #3</div>
+            <div class="box-icon">🎵</div>
+            <div class="gc-label">ເພງພິເສດ</div>
+            <div class="gc-sublabel">Video Song</div>
+          </div>
+        </div>
+      </div>
+      <div class="box-tag">ຂອງຂວັນ #3</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="footer-hearts">♥ ♥ ♥</div>
+  <p class="footer-quote">"ເທີຄືວັນນີ້ຂອງຂ້ອຍ ແລະ ທຸກໆວັນຂ້າງໜ້າ."</p>
+  <p class="footer-name">ສ້າງດ້ວຍຄວາມຮັກ ສຳລັບ My Yer</p>
+  <button class="kiss-reminder-btn" onclick="showKissChallenge()" title="ເປີດຄຳໝັ້ນສັນຍາອີກຄັ້ງ">
+    💋 ຄຳໝັ້ນສັນຍາ
+  </button>
+</footer>
+
+<!-- ═══ GIFT 1 POPUP — EARPHONE COUPON ═══ -->
+<div class="popup-bg" id="popup1">
+  <div class="coupon-wrap">
+    <button class="x-close" onclick="closePopup('popup1')">✕</button>
+
+    <div class="coupon">
+      <div class="coupon-stub">
+        <div class="stub-text">COUPON</div>
+        <div class="stub-dots"></div>
+      </div>
+
+      <div class="coupon-body">
+        <div class="coupon-top-label">✦ ຄູປ໋ອງຂອງຂວັນ ✦</div>
+        <div class="coupon-restaurant">🎧<br><span>Earphones</span></div>
+        <div class="coupon-divider">
+          <span class="c-dot"></span><span class="c-line"></span><span class="c-dot"></span>
+        </div>
+        <div class="coupon-for">ສຳລັບ</div>
+        <div class="coupon-name">My Yer 🌹</div>
+        <div class="coupon-detail">ຂ້ອຍຈະຊື້ຫູຟັງໃຫ້ 1 ຄູ່</div>
+        <div class="coupon-note">ໃຊ້ໄດ້ຫຼັງຈາກ ເທີກັບມາລາວ</div>
+        <div class="coupon-divider">
+          <span class="c-dot"></span><span class="c-line"></span><span class="c-dot"></span>
+        </div>
+        <div class="coupon-barcode">
+          <div class="barcode-bars"></div>
+          <div class="coupon-code">YER-EARPHONE-2026</div>
+        </div>
+        <div class="coupon-hearts">♥ ♥ ♥</div>
+      </div>
+    </div>
+
+    <button class="popup-close-bottom" onclick="closePopup1()">ເກັບຄູປ໋ອງ 💌</button>
+  </div>
+</div>
+
+<!-- ═══ GIFT 2 POPUP — MONEY TREAT ═══ -->
+<div class="popup-bg" id="popup2">
+  <div class="money-wrap">
+    <button class="x-close" onclick="closePopup('popup2')">✕</button>
+    <div class="money-card">
+      <div class="money-sparkles" id="mSparkles"></div>
+      <div class="money-top">
+        <div class="money-label">🍱 ວັນເກີດ ຄຳ Treat 🎂</div>
+        <div class="money-amount">$50</div>
+        <div class="money-sub">ຈາກ ຂ້ອຍ → ເທີ</div>
+      </div>
+      <div class="money-divider-dashed"></div>
+      <div class="money-msg">
+        ມື້ນີ້ວັນເກີດເທີ ຂ້ອຍຢາກລ້ຽງເຂົ້າເທີສັກມື້ —<br>
+        ໄປສັ່ງອາຫານທີ່ຢາກກິນໄດ້ເລີຍນ່ະ 😊🇯🇵<br>
+        ກິນໃຫ້ອີ່ມ ແລ້ວຄິດເຖິງຊັ້ນດ້ວຍ 💕
+      </div>
+      <div class="money-divider-dashed"></div>
+      <div class="money-footer">
+        <span class="money-flag">🇯🇵</span>
+        <span class="money-stamp">PAID WITH LOVE</span>
+        <span class="money-flag">💕</span>
+      </div>
+    </div>
+    <button class="popup-close-bottom" onclick="closePopup('popup2')">ຂອບໃຈ 💕</button>
+  </div>
+</div>
+
+<!-- ═══ GIFT 3 POPUP — VIDEO PLAYER ═══ -->
+<div class="popup-bg" id="popup3">
+  <div class="video-wrap-sm">
+    <button class="x-close" onclick="closeVideoPopup()">✕</button>
+    <div class="video-title-bar">
+      <span class="video-dot r"></span><span class="video-dot y"></span><span class="video-dot g"></span>
+      <span class="video-title-text">🎵 ເພງພິເສດ ສຳລັບ My Yer</span>
+    </div>
+    <div class="video-area">
+      <div class="video-loading" id="videoLoading">
+        <div class="vl-spinner"></div>
+        <div class="vl-text">ກຳລັງໂຫລດ...</div>
+      </div>
+      <div id="videoContainer"></div>
+    </div>
+    <div class="video-caption-sm">
+      ດ້ວຍຄວາມຮັກ, ສຳລັບເທີຄົນດຽວ 🌹
+    </div>
+  </div>
+</div>
+
+<!-- ═══ KISS CHALLENGE POPUP ═══ -->
+<div class="popup-bg" id="kissPopup">
+  <div class="popup-card">
+    <div class="popup-icon">💋</div>
+    <h3 class="popup-title">ຄຳຖາມສຳຄັນ</h3>
+    <p class="popup-desc">
+      "ສັນຍາວ່າຈະຈູບຂ້ອຍໃຫ້ດົນທີ່ສຸດ ຫຼັງຈາກເທີກັບມາລາວ<br>ເພື່ອປົດລ໋ອກຂອງຂວັນທັງໝົດ" 💕
+    </p>
+    <div class="kiss-btns">
+      <button class="btn-yes" onclick="acceptKiss()">ຕົກລົງ ✓</button>
+      <button class="btn-no"  onclick="declineKiss()">ບໍ່</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ LOCKED POPUP ═══ -->
+<div class="popup-bg" id="lockedPopup" onclick="document.getElementById('lockedPopup').classList.remove('active')">
+  <div class="popup-card">
+    <div class="popup-icon">🔒</div>
+    <h3 class="popup-title">ຍັງລ໋ອກຢູ່!</h3>
+    <p class="popup-desc">
+      ເປີດຂອງຂວັນ #2 ກ່ອນ ແລ້ວຕອບຄຳຖາມ ເພື່ອປົດລ໋ອກຂອງຂວັນໂຕນີ້ 💝
+    </p>
+    <button class="popup-close" onclick="document.getElementById('lockedPopup').classList.remove('active')">ຕົກລົງ</button>
+  </div>
+</div>
+
+<script>
+const gifts = [
+  {
+    icon: "🍽️",
+    title: "ຄູປ໋ອງ: ດິນເນີ Romantic",
+    desc: "ຂ້ອຍຈະພາເທີໄປດິນເນີສະໂລດ ຫຼັງຈາກເທີກັບມາຈາກລາວ — ສຳລັບເຮົາສອງຄົນ, ດ້ວຍຄວາມຮັກທີ່ບໍ່ສິ້ນສຸດ. ✨"
+  },
+  {
+    icon: "🍱",
+    title: "ລ້ຽງເຂົ້າເທີມື້ນີ້ນ່ະ 50$",
+    desc: "ມື້ນີ້ວັນເກີດເທີ ຂ້ອຍຢາກລ້ຽງເຂົ້າເທີສັກມື້ — ໄປສັ່ງອາຫານທີ່ຢາກກິນໄດ້ເລີຍນ່ະ, $50 ນີ້ສຳລັບເທີຄົນດຽວ 💕🇯🇵"
+  },
+  {
+    icon: "🎵",
+    title: "ວີດີໂອ ເພງພິເສດ",
+    desc: "ຂ້ອຍເຮັດວີດີໂອ ແລ້ວ ຮ້ອງເພງໃຫ້ເທີ — ດ້ວຍຄວາມຮັກ, ສຳລັບເທີຄົນດຽວ. 🎤🌹"
+  }
+];
+
+// Each gift has a fixed assigned content slot
+// But which BOX shows which gift is determined at runtime
+// Box clicked first → always gift index 1 (ລ້ຽງເຂົ້າ)
+// The other two get gifts 0 and 2 in order
+
+// ── GAME STATE ──
+let firstClickDone = false;
+let kissAccepted   = false;
+
+// Maps box index (0,1,2) to gift data index (0,1,2)
+// Assigned dynamically on first click
+const boxToGift = { 0: null, 1: null, 2: null };
+
+const giftData = [
+  { icon: '🎧', label: 'ຫູຟັງ Earphones', sub: 'ຊື້ໃຫ້ຫຼັງກັບລາວ', popupId: 'popup1' },
+  { icon: '🍱', label: 'ລ້ຽງເຂົ້າ',        sub: '$50 · Japan',      popupId: 'popup2' },
+  { icon: '🎵', label: 'ເພງພິເສດ',         sub: 'Video Song',       popupId: 'popup3' }
+];
+
+function assignGifts(firstBoxIdx) {
+  // First clicked box always gets gift 1 (ລ້ຽງເຂົ້າ)
+  boxToGift[firstBoxIdx] = 1;
+  const others = [0, 1, 2].filter(i => i !== firstBoxIdx);
+  boxToGift[others[0]] = 0;
+  boxToGift[others[1]] = 2;
+}
+
+function revealBoxContent(boxIdx) {
+  const gIdx = boxToGift[boxIdx];
+  const g = giftData[gIdx];
+  const el = document.getElementById('gift' + (boxIdx + 1));
+  // Update box-content with correct gift info
+  el.querySelector('.box-icon').textContent   = g.icon;
+  el.querySelector('.gc-label').textContent   = g.label;
+  el.querySelector('.gc-sublabel').textContent = g.sub;
+  // Open the box visually
+  el.classList.add('unlocked');
+  confettiBurst(el);
+}
+
+function openPopupForBox(boxIdx) {
+  const gIdx = boxToGift[boxIdx];
+  const g = giftData[gIdx];
+  if (g.popupId === 'popup2') {
+    spawnMoneySparkles();
+    document.getElementById(g.popupId).classList.add('active');
+  } else if (g.popupId === 'popup3') {
+    openVideoPopup();
+  } else {
+    document.getElementById(g.popupId).classList.add('active');
+  }
+}
+
+function lockOthers(clickedIdx) {
+  [0, 1, 2].forEach(i => {
+    if (i !== clickedIdx) {
+      document.getElementById('gift' + (i + 1)).classList.add('post-lock');
+    }
+  });
+}
+
+function onGiftClick(idx) {
+
+  // ── FIRST EVER CLICK ──
+  if (!firstClickDone) {
+    firstClickDone = true;
+    assignGifts(idx);
+    revealBoxContent(idx);
+    lockOthers(idx);
+
+    // Show ລ້ຽງເຂົ້າ popup, kiss challenge follows on close
+    spawnMoneySparkles();
+    document.getElementById('popup2').classList.add('active');
+    document.querySelector('#popup2 .popup-close-bottom').dataset.kissAfter = '1';
+    return;
+  }
+
+  // ── POST-LOCK — waiting for kiss ──
+  if (!kissAccepted) {
+    showKissChallenge();
+    return;
+  }
+
+  // ── AFTER KISS: box is closed, click to open ──
+  const el = document.getElementById('gift' + (idx + 1));
+  if (!el.classList.contains('unlocked')) {
+    revealBoxContent(idx);
+    setTimeout(() => openPopupForBox(idx), 400);
+  } else {
+    // Already opened — just re-show the popup
+    openPopupForBox(idx);
+  }
+}
+
+function closePopup(id) {
+  document.getElementById(id).classList.remove('active');
+}
+function closePopup1() { closePopup('popup1'); }
+function closeReveal(e) {}
+
+function openVideoPopup() {
+  var loader = document.getElementById('videoLoading');
+  if (loader) loader.classList.remove('hidden');
+  var container = document.getElementById('videoContainer');
+  if (container) {
+    container.innerHTML = '';
+    var video = document.createElement('video');
+    video.src = 'https://lj-bucket-1.s3.ap-southeast-1.amazonaws.com/uploads/video.mp4';
+    video.controls = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.preload = 'metadata';
+    video.style.cssText = 'width:100%;height:100%;display:block;object-fit:contain;background:#000;';
+    video.addEventListener('canplay', function() {
+      var l = document.getElementById('videoLoading');
+      if (l) l.classList.add('hidden');
+    }, { once: true });
+    container.appendChild(video);
+  }
+  document.getElementById('popup3').classList.add('active');
+}
+
+function closeVideoPopup() {
+  var container = document.getElementById('videoContainer');
+  if (container) {
+    var v = container.querySelector('video');
+    if (v) { v.pause(); v.src = ''; }
+    container.innerHTML = '';
+  }
+  var loader = document.getElementById('videoLoading');
+  if (loader) loader.classList.remove('hidden');
+  closePopup('popup3');
+}
+
+// popup2 close btn — kiss challenge after first open
+document.addEventListener('DOMContentLoaded', function() {
+  const p2btn = document.querySelector('#popup2 .popup-close-bottom');
+  p2btn.addEventListener('click', function() {
+    const doKiss = this.dataset.kissAfter === '1';
+    closePopup('popup2');
+    if (doKiss && !kissAccepted) {
+      setTimeout(() => showKissChallenge(), 300);
+    }
+  });
+  spawnMoneySparkles();
+});
+
+function showKissChallenge() {
+  document.getElementById('kissPopup').classList.add('active');
+}
+
+function acceptKiss() {
+  kissAccepted = true;
+  document.getElementById('kissPopup').classList.remove('active');
+  // Only remove the lock — boxes stay CLOSED, she must click to open
+  [1, 2, 3].forEach(n => {
+    document.getElementById('gift' + n).classList.remove('post-lock');
+  });
+  for (let i = 0; i < 3; i++) {
+    setTimeout(() => burstCenter(), i * 200);
+  }
+}
+
+function declineKiss() {
+  document.getElementById('kissPopup').classList.remove('active');
+}
+
+function spawnMoneySparkles() {
+  const container = document.getElementById('mSparkles');
+  if (!container) return;
+  container.innerHTML = '';
+  for (let i = 0; i < 14; i++) {
+    const s = document.createElement('div');
+    s.className = 'sparkle';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top  = Math.random() * 100 + '%';
+    s.style.animationDelay = Math.random() * 2 + 's';
+    s.style.animationDuration = (1.5 + Math.random()) + 's';
+    container.appendChild(s);
+  }
+}
+
+function confettiBurst(el) {
+  const target = el.querySelector('.box-body') || el;
+  const rect = target.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  spawnConfetti(cx, cy, 20);
+}
+
+function burstCenter() {
+  spawnConfetti(window.innerWidth / 2, window.innerHeight / 2, 25);
+}
+
+function spawnConfetti(cx, cy, count) {
+  const colors = ['#e8a0b0','#c4876a','#f0d8c8','#7a2540','#d4607a','#fff'];
+  for (let i = 0; i < count; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = (cx + (Math.random() - 0.5) * 100) + 'px';
+    piece.style.top  = cy + 'px';
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.animationDelay = Math.random() * 0.4 + 's';
+    document.body.appendChild(piece);
+    setTimeout(() => piece.remove(), 1800);
+  }
+}
+
+// Generate petals
+const petalContainer = document.getElementById('petals');
+for (let i = 0; i < 20; i++) {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  p.style.left = Math.random() * 100 + 'vw';
+  p.style.animationDuration = (6 + Math.random() * 9) + 's';
+  p.style.animationDelay   = Math.random() * 12 + 's';
+  p.style.transform = 'scale(' + (0.5 + Math.random()) + ')';
+  p.style.background = Math.random() > 0.5 ? '#d4607a' : '#c4876a';
+  petalContainer.appendChild(p);
+}
+</script>
+</body>
+</html>
